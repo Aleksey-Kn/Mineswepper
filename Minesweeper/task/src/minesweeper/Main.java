@@ -31,7 +31,7 @@ public class Main {
         for (char[] ch : mask) {
             Arrays.fill(ch, '.');
         }
-        show();
+        show(mask);
         System.out.print("Set/delete mines marks (x and y coordinates): ");
         x = scanner.nextInt() - 1;
         y = scanner.nextInt() - 1;
@@ -54,7 +54,7 @@ public class Main {
         }
         open(x, y);
         while (opened + colMine < 81) {
-            show();
+            show(mask);
             System.out.print("Set/delete mines marks (x and y coordinates): ");
             scanner.nextLine();
             x = scanner.nextInt() - 1;
@@ -62,6 +62,7 @@ public class Main {
             if (scanner.next().equals("free")) {
                 if (!open(x, y)) {
                     System.out.println("You stepped on a mine and failed!");
+                    show(world);
                     return;
                 }
             } else if (mask[y][x] == '*'){
@@ -83,6 +84,7 @@ public class Main {
             }
         }
         System.out.println("Congratulations! You found all mines!");
+        show(world);
     }
 
     private static int countMine(int x, int y) {
@@ -128,12 +130,12 @@ public class Main {
         return true;
     }
 
-    private static void show() {
+    private static void show(char[][] mas) {
         System.out.println(" │123456789│");
         System.out.println("—│—————————│");
-        for (int i = 0; i < mask.length; i++) {
+        for (int i = 0; i < mas.length; i++) {
             System.out.print((i + 1) + "|");
-            for (char now : mask[i]) {
+            for (char now : mas[i]) {
                 System.out.print(now);
             }
             System.out.println("|");

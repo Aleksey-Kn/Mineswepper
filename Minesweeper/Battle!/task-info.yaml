@@ -1,17 +1,6 @@
 type: edu
 custom_name: stage5
 files:
-- name: src/minesweeper/Main.java
-  visible: true
-  text: |
-    package minesweeper;
-
-    public class Main {
-        public static void main(String[] args) {
-            // write your code here
-        }
-    }
-  learner_created: false
 - name: test/MinesweeperTest.java
   visible: false
   text: |
@@ -476,6 +465,17 @@ files:
             }
 
             return CheckResult.correct();
+        }
+    }
+  learner_created: false
+- name: src/minesweeper/Main.java
+  visible: true
+  text: |
+    package minesweeper;
+
+    public class Main {
+        public static void main(String[] args) {
+            // write your code here
         }
     }
   learner_created: false
